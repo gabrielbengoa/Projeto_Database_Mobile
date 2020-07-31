@@ -31,7 +31,7 @@ O cliente irá enviar os dado no formato Json. Porém
 $data = json_decode(file_get_contents("php://input"));
 
 #Verificar se os dados vindos do usuário estão preenchidos
-if(!empty($data->tipo) && !empty($data->logradouro) && !empty($data->numero) && !empty($data->complemento) && !empty($data->bairro) && !empty($data->cep)){
+if(!empty($data->tipo) && !empty($data->logradouro) && !empty($data->numero) && !empty($data->complemento) && !empty($data->bairro) && !empty($data->cep) && !empty($data->idendereco)){
 
     $endereco->tipo = $data->tipo;
     $endereco->logradouro = $data->logradouro;
@@ -39,6 +39,7 @@ if(!empty($data->tipo) && !empty($data->logradouro) && !empty($data->numero) && 
     $endereco->complemento = $data->complemento;
     $endereco->bairro = $data->bairro;
     $endereco->cep = $data->cep;
+    $endereco->idendereco = $data->idendereco;
 
     if($endereco->alterarEndereco()){
         header("HTTP/1.0 201");

@@ -31,10 +31,11 @@ O cliente irá enviar os dado no formato Json. Porém
 $data = json_decode(file_get_contents("php://input"));
 
 #Verificar se os dados vindos do usuário estão preenchidos
-if(!empty($data->email) && !empty($data->telefone)){
+if(!empty($data->email) && !empty($data->telefone) && !empty($data->idcontato)){
 
     $contato->email = $data->email;
     $contato->telefone = $data->telefone;
+    $contato->idcontato = $data->idcontato;
     
     if($contato->alterarContato()){
         header("HTTP/1.0 201");
